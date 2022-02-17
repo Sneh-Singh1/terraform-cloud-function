@@ -69,13 +69,13 @@ variable "entry_point" {
 variable "trigger_http" {
   description = <<-EOT
   {
-   "type": "bool",
+   "type": "json",
    "purpose": "autocomplete",
    "data": [
   "true",
   "false"
    ],
-   "default":true
+   "default":true,
    "description": "Whether any HTTP request (of a supported type) to the endpoint will trigger function execution."
 }
 EOT 
@@ -93,7 +93,7 @@ variable "ingress_setting" {
   "ALLOW_INTERNAL_AND_GCLB",
   "ALLOW_INTERNAL_ONLY"
    ],
-   "default":"ALLOW_ALL"
+   "default":"ALLOW_ALL",
    "description": "string value that controls what traffic can reach the function."
 }
 EOT 
