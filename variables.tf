@@ -11,7 +11,33 @@ variable "project" {
 }
 
 variable "runtime" {
-  description = " The runtime in which the function is going to run."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "nodejs16",
+  "nodejs14",
+  "nodejs12",
+  "nodejs10",
+  "nodejs8",
+  "nodejs6",
+  "python39",
+  "python38",
+  "python37",
+  "go116",
+  "go116",
+  "go113",
+  "go111",
+  "java11",
+  "dotnet3",
+  "ruby27",
+  "ruby26",
+  "php74"  
+   ],
+  "description":"The runtime in which the function is going to run."
+}
+EOT
   type        = string
   default     = "nodejs14"
 }
@@ -41,13 +67,36 @@ variable "entry_point" {
 }
 
 variable "trigger_http" {
-  description = "Any HTTP request (of a supported type) to the endpoint will trigger function execution."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":true,
+   "description": "Whether any HTTP request (of a supported type) to the endpoint will trigger function execution."
+}
+EOT 
   type        = bool
   default     = "true"
 }
 
 variable "ingress_setting" {
-  description = "tring value that controls what traffic can reach the function."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "ALLOW_ALL",
+  "ALLOW_INTERNAL_AND_GCLB",
+  "ALLOW_INTERNAL_ONLY"
+   ],
+   "default":"ALLOW_ALL",
+   "description": "string value that controls what traffic can reach the function."
+}
+EOT 
   type        = string
   default     = "ALLOW_ALL"
 }
