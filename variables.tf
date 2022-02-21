@@ -161,3 +161,7 @@ variable "members" {
   default     = []
 
 }
+variable "tags" {
+  type        = string
+  description = "this is for assigning tags."
+}
