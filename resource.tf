@@ -21,7 +21,7 @@ resource "google_cloudfunctions_function" "cloudfunction" {
   source_repository{
     url = var.url
   }
-
+  tags = var.tags 
 
 }
 
@@ -35,7 +35,7 @@ resource "google_cloudfunctions_function_iam_binding" "iam_binding" {
   role           = var.role
   members        = var.members
   cloud_function = google_cloudfunctions_function.cloudfunction.id
-
+  tags           = var.tags
 }
 
 
@@ -47,7 +47,7 @@ resource "google_cloudfunctions_function_iam_binding" "iam_binding_member" {
   role           = var.role
   members        = var.members
   cloud_function = google_cloudfunctions_function.cloudfunction.id
-
+  tags           = var.tags
 }
 
 
