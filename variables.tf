@@ -98,7 +98,7 @@ variable "ingress_setting" {
 }
 EOT 
   type        = string
-  default     = "ALLOW_ALL"
+  default     = "ALLOW_INTERNAL_ONLY"
 }
 
 variable "service_account_email" {
